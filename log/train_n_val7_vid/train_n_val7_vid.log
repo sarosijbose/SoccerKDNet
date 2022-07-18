@@ -1,0 +1,85 @@
+---BACKBONE CONFIGS---
+==========================================
+backbone_net:resnet
+depth:101
+dropout:0.5
+groups:1
+frames_per_group:1
+without_t_stride:True
+pooling_method:max
+dw_t_conv:False
+temporal_module_name:TAM
+blending_frames:3
+blending_method:sum
+dw_conv:True
+gpu:None
+cudnn_benchmark:True
+batch_size:32
+lr:0.01
+lr_scheduler:cosine
+lr_steps:[15, 30, 45]
+momentum:0.9
+nesterov:False
+weight_decay:0.0005
+epochs:50
+resume:
+pretrained:./state_dicts/K400-TAM-ResNet-101-f32.pth.tar
+start_epoch:0
+clip_gradient:None
+imagenet_pretrained:True
+workers:0
+datadir:/home/SarosijBose/HAR/KDHAR/kinetics400/k400
+dataset:kinetics400
+threed_data:False
+input_size:224
+disable_scaleup:False
+random_sampling:False
+dense_sampling:False
+augmentor_ver:v1
+scale_range:[256, 320]
+modality:rgb
+mean:None
+std:None
+logdir:snapshots/
+print_freq:100
+show_model:False
+evaluate:False
+num_crops:1
+num_clips:1
+sync_bn:False
+world_size:1
+rank:0
+dist_url:tcp://127.0.0.1:23456
+dist_backend:nccl
+multiprocessing_distributed:False
+num_classes:400
+
+---FINE TUNE CONFIGS---
+==========================================
+base_path:/home/SarosijBose/HAR/KDHAR/soccer/images
+stand_alone:False
+epochs:100
+runs:5
+bs:64
+loss:CrossEntropy
+optim:Adam
+lr:0.0001
+workers:12
+input_size:224
+gpu:0
+save_ckpt:True
+eval_only:True
+eval_ckpt:58.863_CrossEntropy_0.0001_train_n_val6
+distill_ckpt:None
+log_file:train_n_val7_vid
+device:cuda:0
+log_dir:./log/train_n_val7_vid/train_n_val7_vid.log
+
+~~~ON A FRAME BASIS~~~
+No. of correct predictions: 1398 || No. of total samples: 2375
+Accuracy of fine-tuned network on test videos: 58.863 %
+~~~ON A VIDEO BASIS~~~
+No. of correct predictions: 59 || No. of total samples: 95
+Accuracy of fine-tuned network on test videos: 62.105 %
+Evaluation accuracy obtained on a frame-frame basis: 58.863 %
+Evaluation accuracy obtained on video basis: 62.105 %

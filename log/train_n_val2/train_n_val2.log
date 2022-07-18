@@ -1,0 +1,599 @@
+---BACKBONE CONFIGS---
+==========================================
+backbone_net:resnet
+depth:50
+dropout:0.5
+groups:1
+frames_per_group:1
+without_t_stride:True
+pooling_method:max
+dw_t_conv:False
+temporal_module_name:TAM
+blending_frames:3
+blending_method:sum
+dw_conv:True
+gpu:None
+cudnn_benchmark:True
+batch_size:32
+lr:0.01
+lr_scheduler:cosine
+lr_steps:[15, 30, 45]
+momentum:0.9
+nesterov:False
+weight_decay:0.0005
+epochs:50
+resume:
+pretrained:./state_dicts/K400-TAM-ResNet-50-f32.pth.tar
+start_epoch:0
+clip_gradient:None
+imagenet_pretrained:True
+workers:0
+datadir:/home/SarosijBose/HAR/KDHAR/kinetics400/k400
+dataset:kinetics400
+threed_data:False
+input_size:224
+disable_scaleup:False
+random_sampling:False
+dense_sampling:False
+augmentor_ver:v1
+scale_range:[256, 320]
+modality:rgb
+mean:None
+std:None
+logdir:snapshots/
+print_freq:100
+show_model:False
+evaluate:False
+num_crops:1
+num_clips:1
+sync_bn:False
+world_size:1
+rank:0
+dist_url:tcp://127.0.0.1:23456
+dist_backend:nccl
+multiprocessing_distributed:False
+num_classes:400
+
+---FINE TUNE CONFIGS---
+==========================================
+base_path:/home/SarosijBose/HAR/KDHAR/soccer/images
+stand_alone:False
+epochs:100
+runs:5
+bs:64
+loss:CrossEntropy
+optim:Adam
+lr:0.0001
+workers:4
+input_size:224
+gpu:0
+save_ckpt:True
+eval_only:False
+eval_ckpt:None
+log_file:train_n_val2
+device:cuda:0
+log_dir:./log/train_n_val2/train_n_val2.log
+
+Epoch:1 || loss------> 1.285
+Epoch:2 || loss------> 1.614
+Epoch:3 || loss------> 1.547
+Epoch:4 || loss------> 1.555
+Epoch:5 || loss------> 1.490
+Epoch:6 || loss------> 1.488
+Epoch:7 || loss------> 1.444
+Epoch:8 || loss------> 1.416
+Epoch:9 || loss------> 1.352
+Epoch:10 || loss------> 1.378
+Epoch:11 || loss------> 1.358
+Epoch:12 || loss------> 1.336
+Epoch:13 || loss------> 1.321
+Epoch:14 || loss------> 1.313
+Epoch:15 || loss------> 1.267
+Epoch:16 || loss------> 1.254
+Epoch:17 || loss------> 1.266
+Epoch:18 || loss------> 1.223
+Epoch:19 || loss------> 1.220
+Epoch:20 || loss------> 1.215
+Epoch:21 || loss------> 1.189
+Epoch:22 || loss------> 1.163
+Epoch:23 || loss------> 1.173
+Epoch:24 || loss------> 1.155
+Epoch:25 || loss------> 1.119
+Epoch:26 || loss------> 1.091
+Epoch:27 || loss------> 1.099
+Epoch:28 || loss------> 1.078
+Epoch:29 || loss------> 1.085
+Epoch:30 || loss------> 1.074
+Epoch:31 || loss------> 1.071
+Epoch:32 || loss------> 1.056
+Epoch:33 || loss------> 1.050
+Epoch:34 || loss------> 1.045
+Epoch:35 || loss------> 1.043
+Epoch:36 || loss------> 1.016
+Epoch:37 || loss------> 1.041
+Epoch:38 || loss------> 1.035
+Epoch:39 || loss------> 1.028
+Epoch:40 || loss------> 1.033
+Epoch:41 || loss------> 0.980
+Epoch:42 || loss------> 1.026
+Epoch:43 || loss------> 0.993
+Epoch:44 || loss------> 1.011
+Epoch:45 || loss------> 0.985
+Epoch:46 || loss------> 0.996
+Epoch:47 || loss------> 0.969
+Epoch:48 || loss------> 0.972
+Epoch:49 || loss------> 0.980
+Epoch:50 || loss------> 0.960
+Epoch:51 || loss------> 0.954
+Epoch:52 || loss------> 0.933
+Epoch:53 || loss------> 0.969
+Epoch:54 || loss------> 0.941
+Epoch:55 || loss------> 0.934
+Epoch:56 || loss------> 0.949
+Epoch:57 || loss------> 0.924
+Epoch:58 || loss------> 0.924
+Epoch:59 || loss------> 0.916
+Epoch:60 || loss------> 0.937
+Epoch:61 || loss------> 0.909
+Epoch:62 || loss------> 0.915
+Epoch:63 || loss------> 0.909
+Epoch:64 || loss------> 0.910
+Epoch:65 || loss------> 0.906
+Epoch:66 || loss------> 0.905
+Epoch:67 || loss------> 0.897
+Epoch:68 || loss------> 0.901
+Epoch:69 || loss------> 0.889
+Epoch:70 || loss------> 0.881
+Epoch:71 || loss------> 0.893
+Epoch:72 || loss------> 0.874
+Epoch:73 || loss------> 0.875
+Epoch:74 || loss------> 0.892
+Epoch:75 || loss------> 0.877
+Epoch:76 || loss------> 0.865
+Epoch:77 || loss------> 0.872
+Epoch:78 || loss------> 0.865
+Epoch:79 || loss------> 0.879
+Epoch:80 || loss------> 0.872
+Epoch:81 || loss------> 0.873
+Epoch:82 || loss------> 0.865
+Epoch:83 || loss------> 0.862
+Epoch:84 || loss------> 0.849
+Epoch:85 || loss------> 0.858
+Epoch:86 || loss------> 0.856
+Epoch:87 || loss------> 0.864
+Epoch:88 || loss------> 0.872
+Epoch:89 || loss------> 0.854
+Epoch:90 || loss------> 0.847
+Epoch:91 || loss------> 0.863
+Epoch:92 || loss------> 0.841
+Epoch:93 || loss------> 0.851
+Epoch:94 || loss------> 0.856
+Epoch:95 || loss------> 0.864
+Epoch:96 || loss------> 0.852
+Epoch:97 || loss------> 0.841
+Epoch:98 || loss------> 0.858
+Epoch:99 || loss------> 0.851
+Epoch:100 || loss------> 0.849
+------Training complete------
+No. of correct predictions: 1292 || No. of total samples: 2375
+Accuracy of fine-tuned network on test videos: 54.400 %
+------Evaluation complete. Saving best available checkpoint------
+Epoch:1 || loss------> 1.274
+Epoch:2 || loss------> 1.602
+Epoch:3 || loss------> 1.620
+Epoch:4 || loss------> 1.589
+Epoch:5 || loss------> 1.490
+Epoch:6 || loss------> 1.470
+Epoch:7 || loss------> 1.485
+Epoch:8 || loss------> 1.486
+Epoch:9 || loss------> 1.416
+Epoch:10 || loss------> 1.405
+Epoch:11 || loss------> 1.373
+Epoch:12 || loss------> 1.309
+Epoch:13 || loss------> 1.281
+Epoch:14 || loss------> 1.272
+Epoch:15 || loss------> 1.256
+Epoch:16 || loss------> 1.232
+Epoch:17 || loss------> 1.216
+Epoch:18 || loss------> 1.190
+Epoch:19 || loss------> 1.193
+Epoch:20 || loss------> 1.167
+Epoch:21 || loss------> 1.144
+Epoch:22 || loss------> 1.160
+Epoch:23 || loss------> 1.110
+Epoch:24 || loss------> 1.148
+Epoch:25 || loss------> 1.116
+Epoch:26 || loss------> 1.094
+Epoch:27 || loss------> 1.135
+Epoch:28 || loss------> 1.106
+Epoch:29 || loss------> 1.090
+Epoch:30 || loss------> 1.072
+Epoch:31 || loss------> 1.106
+Epoch:32 || loss------> 1.060
+Epoch:33 || loss------> 1.071
+Epoch:34 || loss------> 1.057
+Epoch:35 || loss------> 1.030
+Epoch:36 || loss------> 1.043
+Epoch:37 || loss------> 1.016
+Epoch:38 || loss------> 1.018
+Epoch:39 || loss------> 1.012
+Epoch:40 || loss------> 1.031
+Epoch:41 || loss------> 0.987
+Epoch:42 || loss------> 0.986
+Epoch:43 || loss------> 0.975
+Epoch:44 || loss------> 1.004
+Epoch:45 || loss------> 0.975
+Epoch:46 || loss------> 0.972
+Epoch:47 || loss------> 0.960
+Epoch:48 || loss------> 0.961
+Epoch:49 || loss------> 0.953
+Epoch:50 || loss------> 0.937
+Epoch:51 || loss------> 0.931
+Epoch:52 || loss------> 0.939
+Epoch:53 || loss------> 0.912
+Epoch:54 || loss------> 0.927
+Epoch:55 || loss------> 0.914
+Epoch:56 || loss------> 0.921
+Epoch:57 || loss------> 0.917
+Epoch:58 || loss------> 0.899
+Epoch:59 || loss------> 0.903
+Epoch:60 || loss------> 0.894
+Epoch:61 || loss------> 0.877
+Epoch:62 || loss------> 0.901
+Epoch:63 || loss------> 0.885
+Epoch:64 || loss------> 0.864
+Epoch:65 || loss------> 0.875
+Epoch:66 || loss------> 0.866
+Epoch:67 || loss------> 0.864
+Epoch:68 || loss------> 0.874
+Epoch:69 || loss------> 0.858
+Epoch:70 || loss------> 0.852
+Epoch:71 || loss------> 0.850
+Epoch:72 || loss------> 0.854
+Epoch:73 || loss------> 0.858
+Epoch:74 || loss------> 0.845
+Epoch:75 || loss------> 0.843
+Epoch:76 || loss------> 0.846
+Epoch:77 || loss------> 0.844
+Epoch:78 || loss------> 0.818
+Epoch:79 || loss------> 0.841
+Epoch:80 || loss------> 0.824
+Epoch:81 || loss------> 0.819
+Epoch:82 || loss------> 0.816
+Epoch:83 || loss------> 0.838
+Epoch:84 || loss------> 0.836
+Epoch:85 || loss------> 0.832
+Epoch:86 || loss------> 0.828
+Epoch:87 || loss------> 0.827
+Epoch:88 || loss------> 0.809
+Epoch:89 || loss------> 0.835
+Epoch:90 || loss------> 0.819
+Epoch:91 || loss------> 0.812
+Epoch:92 || loss------> 0.815
+Epoch:93 || loss------> 0.831
+Epoch:94 || loss------> 0.814
+Epoch:95 || loss------> 0.815
+Epoch:96 || loss------> 0.814
+Epoch:97 || loss------> 0.812
+Epoch:98 || loss------> 0.811
+Epoch:99 || loss------> 0.820
+Epoch:100 || loss------> 0.809
+------Training complete------
+No. of correct predictions: 1263 || No. of total samples: 2375
+Accuracy of fine-tuned network on test videos: 53.179 %
+------Evaluation complete. Saving best available checkpoint------
+Epoch:1 || loss------> 1.274
+Epoch:2 || loss------> 1.603
+Epoch:3 || loss------> 1.623
+Epoch:4 || loss------> 1.608
+Epoch:5 || loss------> 1.576
+Epoch:6 || loss------> 1.535
+Epoch:7 || loss------> 1.496
+Epoch:8 || loss------> 1.459
+Epoch:9 || loss------> 1.432
+Epoch:10 || loss------> 1.386
+Epoch:11 || loss------> 1.336
+Epoch:12 || loss------> 1.335
+Epoch:13 || loss------> 1.284
+Epoch:14 || loss------> 1.282
+Epoch:15 || loss------> 1.255
+Epoch:16 || loss------> 1.242
+Epoch:17 || loss------> 1.264
+Epoch:18 || loss------> 1.260
+Epoch:19 || loss------> 1.226
+Epoch:20 || loss------> 1.223
+Epoch:21 || loss------> 1.246
+Epoch:22 || loss------> 1.228
+Epoch:23 || loss------> 1.217
+Epoch:24 || loss------> 1.227
+Epoch:25 || loss------> 1.203
+Epoch:26 || loss------> 1.172
+Epoch:27 || loss------> 1.165
+Epoch:28 || loss------> 1.167
+Epoch:29 || loss------> 1.140
+Epoch:30 || loss------> 1.142
+Epoch:31 || loss------> 1.148
+Epoch:32 || loss------> 1.123
+Epoch:33 || loss------> 1.126
+Epoch:34 || loss------> 1.118
+Epoch:35 || loss------> 1.129
+Epoch:36 || loss------> 1.100
+Epoch:37 || loss------> 1.110
+Epoch:38 || loss------> 1.104
+Epoch:39 || loss------> 1.104
+Epoch:40 || loss------> 1.100
+Epoch:41 || loss------> 1.064
+Epoch:42 || loss------> 1.061
+Epoch:43 || loss------> 1.074
+Epoch:44 || loss------> 1.084
+Epoch:45 || loss------> 1.064
+Epoch:46 || loss------> 1.033
+Epoch:47 || loss------> 1.045
+Epoch:48 || loss------> 1.031
+Epoch:49 || loss------> 1.019
+Epoch:50 || loss------> 1.050
+Epoch:51 || loss------> 1.003
+Epoch:52 || loss------> 1.003
+Epoch:53 || loss------> 1.018
+Epoch:54 || loss------> 0.994
+Epoch:55 || loss------> 0.994
+Epoch:56 || loss------> 1.004
+Epoch:57 || loss------> 0.963
+Epoch:58 || loss------> 0.986
+Epoch:59 || loss------> 0.961
+Epoch:60 || loss------> 0.972
+Epoch:61 || loss------> 0.950
+Epoch:62 || loss------> 0.972
+Epoch:63 || loss------> 0.957
+Epoch:64 || loss------> 0.949
+Epoch:65 || loss------> 0.943
+Epoch:66 || loss------> 0.946
+Epoch:67 || loss------> 0.952
+Epoch:68 || loss------> 0.932
+Epoch:69 || loss------> 0.926
+Epoch:70 || loss------> 0.936
+Epoch:71 || loss------> 0.952
+Epoch:72 || loss------> 0.929
+Epoch:73 || loss------> 0.931
+Epoch:74 || loss------> 0.920
+Epoch:75 || loss------> 0.921
+Epoch:76 || loss------> 0.922
+Epoch:77 || loss------> 0.926
+Epoch:78 || loss------> 0.909
+Epoch:79 || loss------> 0.910
+Epoch:80 || loss------> 0.919
+Epoch:81 || loss------> 0.919
+Epoch:82 || loss------> 0.913
+Epoch:83 || loss------> 0.916
+Epoch:84 || loss------> 0.904
+Epoch:85 || loss------> 0.913
+Epoch:86 || loss------> 0.912
+Epoch:87 || loss------> 0.898
+Epoch:88 || loss------> 0.910
+Epoch:89 || loss------> 0.901
+Epoch:90 || loss------> 0.897
+Epoch:91 || loss------> 0.915
+Epoch:92 || loss------> 0.917
+Epoch:93 || loss------> 0.906
+Epoch:94 || loss------> 0.899
+Epoch:95 || loss------> 0.910
+Epoch:96 || loss------> 0.913
+Epoch:97 || loss------> 0.906
+Epoch:98 || loss------> 0.897
+Epoch:99 || loss------> 0.910
+Epoch:100 || loss------> 0.915
+------Training complete------
+No. of correct predictions: 1325 || No. of total samples: 2375
+Accuracy of fine-tuned network on test videos: 55.789 %
+------Evaluation complete. Saving best available checkpoint------
+Epoch:1 || loss------> 1.304
+Epoch:2 || loss------> 1.600
+Epoch:3 || loss------> 1.542
+Epoch:4 || loss------> 1.595
+Epoch:5 || loss------> 1.606
+Epoch:6 || loss------> 1.516
+Epoch:7 || loss------> 1.448
+Epoch:8 || loss------> 1.412
+Epoch:9 || loss------> 1.414
+Epoch:10 || loss------> 1.370
+Epoch:11 || loss------> 1.331
+Epoch:12 || loss------> 1.309
+Epoch:13 || loss------> 1.322
+Epoch:14 || loss------> 1.272
+Epoch:15 || loss------> 1.273
+Epoch:16 || loss------> 1.247
+Epoch:17 || loss------> 1.239
+Epoch:18 || loss------> 1.177
+Epoch:19 || loss------> 1.171
+Epoch:20 || loss------> 1.145
+Epoch:21 || loss------> 1.160
+Epoch:22 || loss------> 1.123
+Epoch:23 || loss------> 1.134
+Epoch:24 || loss------> 1.119
+Epoch:25 || loss------> 1.132
+Epoch:26 || loss------> 1.094
+Epoch:27 || loss------> 1.101
+Epoch:28 || loss------> 1.081
+Epoch:29 || loss------> 1.070
+Epoch:30 || loss------> 1.067
+Epoch:31 || loss------> 1.048
+Epoch:32 || loss------> 1.029
+Epoch:33 || loss------> 1.001
+Epoch:34 || loss------> 1.021
+Epoch:35 || loss------> 1.002
+Epoch:36 || loss------> 0.984
+Epoch:37 || loss------> 0.989
+Epoch:38 || loss------> 0.977
+Epoch:39 || loss------> 0.979
+Epoch:40 || loss------> 0.942
+Epoch:41 || loss------> 0.941
+Epoch:42 || loss------> 0.940
+Epoch:43 || loss------> 0.952
+Epoch:44 || loss------> 0.925
+Epoch:45 || loss------> 0.931
+Epoch:46 || loss------> 0.925
+Epoch:47 || loss------> 0.895
+Epoch:48 || loss------> 0.908
+Epoch:49 || loss------> 0.906
+Epoch:50 || loss------> 0.884
+Epoch:51 || loss------> 0.911
+Epoch:52 || loss------> 0.903
+Epoch:53 || loss------> 0.907
+Epoch:54 || loss------> 0.875
+Epoch:55 || loss------> 0.877
+Epoch:56 || loss------> 0.884
+Epoch:57 || loss------> 0.885
+Epoch:58 || loss------> 0.865
+Epoch:59 || loss------> 0.876
+Epoch:60 || loss------> 0.872
+Epoch:61 || loss------> 0.863
+Epoch:62 || loss------> 0.843
+Epoch:63 || loss------> 0.887
+Epoch:64 || loss------> 0.845
+Epoch:65 || loss------> 0.849
+Epoch:66 || loss------> 0.853
+Epoch:67 || loss------> 0.825
+Epoch:68 || loss------> 0.862
+Epoch:69 || loss------> 0.849
+Epoch:70 || loss------> 0.825
+Epoch:71 || loss------> 0.840
+Epoch:72 || loss------> 0.846
+Epoch:73 || loss------> 0.830
+Epoch:74 || loss------> 0.822
+Epoch:75 || loss------> 0.812
+Epoch:76 || loss------> 0.824
+Epoch:77 || loss------> 0.819
+Epoch:78 || loss------> 0.821
+Epoch:79 || loss------> 0.822
+Epoch:80 || loss------> 0.814
+Epoch:81 || loss------> 0.818
+Epoch:82 || loss------> 0.821
+Epoch:83 || loss------> 0.821
+Epoch:84 || loss------> 0.808
+Epoch:85 || loss------> 0.805
+Epoch:86 || loss------> 0.811
+Epoch:87 || loss------> 0.805
+Epoch:88 || loss------> 0.814
+Epoch:89 || loss------> 0.803
+Epoch:90 || loss------> 0.804
+Epoch:91 || loss------> 0.805
+Epoch:92 || loss------> 0.796
+Epoch:93 || loss------> 0.812
+Epoch:94 || loss------> 0.796
+Epoch:95 || loss------> 0.812
+Epoch:96 || loss------> 0.803
+Epoch:97 || loss------> 0.801
+Epoch:98 || loss------> 0.801
+Epoch:99 || loss------> 0.813
+Epoch:100 || loss------> 0.804
+------Training complete------
+No. of correct predictions: 1257 || No. of total samples: 2375
+Accuracy of fine-tuned network on test videos: 52.926 %
+------Evaluation complete. Saving best available checkpoint------
+Epoch:1 || loss------> 1.284
+Epoch:2 || loss------> 1.588
+Epoch:3 || loss------> 1.558
+Epoch:4 || loss------> 1.503
+Epoch:5 || loss------> 1.564
+Epoch:6 || loss------> 1.586
+Epoch:7 || loss------> 1.586
+Epoch:8 || loss------> 1.567
+Epoch:9 || loss------> 1.481
+Epoch:10 || loss------> 1.417
+Epoch:11 || loss------> 1.410
+Epoch:12 || loss------> 1.371
+Epoch:13 || loss------> 1.314
+Epoch:14 || loss------> 1.327
+Epoch:15 || loss------> 1.275
+Epoch:16 || loss------> 1.280
+Epoch:17 || loss------> 1.236
+Epoch:18 || loss------> 1.232
+Epoch:19 || loss------> 1.204
+Epoch:20 || loss------> 1.223
+Epoch:21 || loss------> 1.188
+Epoch:22 || loss------> 1.182
+Epoch:23 || loss------> 1.182
+Epoch:24 || loss------> 1.192
+Epoch:25 || loss------> 1.167
+Epoch:26 || loss------> 1.177
+Epoch:27 || loss------> 1.144
+Epoch:28 || loss------> 1.132
+Epoch:29 || loss------> 1.146
+Epoch:30 || loss------> 1.125
+Epoch:31 || loss------> 1.100
+Epoch:32 || loss------> 1.099
+Epoch:33 || loss------> 1.082
+Epoch:34 || loss------> 1.103
+Epoch:35 || loss------> 1.069
+Epoch:36 || loss------> 1.057
+Epoch:37 || loss------> 1.065
+Epoch:38 || loss------> 1.049
+Epoch:39 || loss------> 1.037
+Epoch:40 || loss------> 1.045
+Epoch:41 || loss------> 1.027
+Epoch:42 || loss------> 1.023
+Epoch:43 || loss------> 1.031
+Epoch:44 || loss------> 1.026
+Epoch:45 || loss------> 0.994
+Epoch:46 || loss------> 1.018
+Epoch:47 || loss------> 0.994
+Epoch:48 || loss------> 1.012
+Epoch:49 || loss------> 0.992
+Epoch:50 || loss------> 1.002
+Epoch:51 || loss------> 1.006
+Epoch:52 || loss------> 0.994
+Epoch:53 || loss------> 0.985
+Epoch:54 || loss------> 0.990
+Epoch:55 || loss------> 0.980
+Epoch:56 || loss------> 0.961
+Epoch:57 || loss------> 0.987
+Epoch:58 || loss------> 0.972
+Epoch:59 || loss------> 0.970
+Epoch:60 || loss------> 0.957
+Epoch:61 || loss------> 0.951
+Epoch:62 || loss------> 0.964
+Epoch:63 || loss------> 0.964
+Epoch:64 || loss------> 0.948
+Epoch:65 || loss------> 0.949
+Epoch:66 || loss------> 0.946
+Epoch:67 || loss------> 0.931
+Epoch:68 || loss------> 0.949
+Epoch:69 || loss------> 0.922
+Epoch:70 || loss------> 0.926
+Epoch:71 || loss------> 0.923
+Epoch:72 || loss------> 0.940
+Epoch:73 || loss------> 0.928
+Epoch:74 || loss------> 0.930
+Epoch:75 || loss------> 0.923
+Epoch:76 || loss------> 0.923
+Epoch:77 || loss------> 0.913
+Epoch:78 || loss------> 0.921
+Epoch:79 || loss------> 0.924
+Epoch:80 || loss------> 0.920
+Epoch:81 || loss------> 0.907
+Epoch:82 || loss------> 0.906
+Epoch:83 || loss------> 0.908
+Epoch:84 || loss------> 0.906
+Epoch:85 || loss------> 0.912
+Epoch:86 || loss------> 0.906
+Epoch:87 || loss------> 0.909
+Epoch:88 || loss------> 0.897
+Epoch:89 || loss------> 0.923
+Epoch:90 || loss------> 0.900
+Epoch:91 || loss------> 0.909
+Epoch:92 || loss------> 0.896
+Epoch:93 || loss------> 0.913
+Epoch:94 || loss------> 0.909
+Epoch:95 || loss------> 0.903
+Epoch:96 || loss------> 0.908
+Epoch:97 || loss------> 0.901
+Epoch:98 || loss------> 0.892
+Epoch:99 || loss------> 0.915
+Epoch:100 || loss------> 0.895
+------Training complete------
+No. of correct predictions: 1284 || No. of total samples: 2375
+Accuracy of fine-tuned network on test videos: 54.063 %
+------Evaluation complete. Saving best available checkpoint------
+Mean accuracy obtained over 5 runs: 54.072
+Best accuracy obtained over 5 runs: 55.789
+{52.92631578947368, 53.17894736842105, 54.06315789473684, 54.4, 55.78947368421053}
