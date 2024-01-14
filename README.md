@@ -10,7 +10,7 @@
 
 ## About:-
 
-This work has been published in the 10th International Conference on Pattern Recognition and Machine Intelligence [PReMI'23](https://www.isical.ac.in/~premi23/) 2023!
+This work has been published in the 10th International Conference on Pattern Recognition and Machine Intelligence [PReMI](https://www.isical.ac.in/~premi23/) 2023!
 
 The paper is available [here](https://doi.org/10.1007/978-3-031-45170-6_47)
 
